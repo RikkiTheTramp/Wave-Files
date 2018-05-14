@@ -5,7 +5,7 @@ public class FactChunk extends Chunk {
 
     private long numberOfSamplesPerChannel;
 
-    public FactChunk(byte[] id, byte[] size) {
+    public FactChunk(int[] id, int[] size) {
         super(id, size);
     }
 

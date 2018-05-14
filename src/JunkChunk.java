@@ -3,7 +3,7 @@
  */
 public class JunkChunk extends Chunk {
 
-    public JunkChunk(byte[] id, byte[] size) {
+    public JunkChunk(int[] id, int[] size) {
         super(id, size);
     }
 
