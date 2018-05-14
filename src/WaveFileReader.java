@@ -35,7 +35,7 @@ public class WaveFileReader {
             chunks.add(chunk);
             chunk = getNextChunk();
         }
-        chunks.add(new DataChunk(reader.read(4), reader.read(4)));
+        chunks.add(chunk);
         wf.addChunks(chunks);
         reader.close();
         return wf;
@@ -48,8 +48,10 @@ public class WaveFileReader {
         int[] id = reader.read(4);
         int[] size = reader.read(4);
         Chunk chunk = createChunk(id, size);
-        int[] data = reader.read((int) chunk.getSize());
-        chunk.extractData(data);
+        if(chunk.getType() != ChunkType.DATA) {
+            int[] data = reader.read((int) chunk.getSize());
+            chunk.extractData(data);
+        }
         return chunk;
     }
 

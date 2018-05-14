@@ -16,7 +16,7 @@ public class DataChunk extends Chunk{
 
     @Override
     protected String dataToString() {
-        return null;
+        return "Data: Audio Samples";
     }
 
     @Override
