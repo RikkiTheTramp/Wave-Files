@@ -13,13 +13,13 @@ public class FmtChunk extends Chunk{
     private int extraParamSize;
     private int[] extraParas = null;
 
-    public FmtChunk(byte[] id, byte[] size){
+    public FmtChunk(int[] id, int[] size){
         super(id, size);
         extraParamSize = 0;
     }
 
     @Override
-    public void extractData(byte[] data) {
+    public void extractData(int[] data) {
         this.audioFormat = extractInt(data, 0, 2);
         this.numChannels =  extractInt(data, 2, 4);
         this.sampleRate = extractLong(data, 4, 8);

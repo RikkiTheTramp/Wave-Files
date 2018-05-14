@@ -3,7 +3,7 @@
  */
 public class BextChunkMaker extends ChunkMaker {
     @Override
-    public Chunk create(byte[] id, byte[] size) {
+    public Chunk create(int[] id, int[] size) {
         return new BextChunk(id, size);
     }
 }

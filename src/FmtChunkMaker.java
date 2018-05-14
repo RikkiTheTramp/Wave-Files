@@ -3,7 +3,7 @@
  */
 public class FmtChunkMaker extends ChunkMaker {
     @Override
-    public Chunk create(byte[] id, byte[] size) {
+    public Chunk create(int[] id, int[] size) {
         return new FmtChunk(id, size);
     }
 }

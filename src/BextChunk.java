@@ -3,12 +3,12 @@
  */
 public class BextChunk extends Chunk {
 
-    public BextChunk(byte[] id, byte[] size) {
+    public BextChunk(int[] id, int[] size) {
         super(id, size);
     }
 
     @Override
-    public void extractData(byte[] data) {
+    public void extractData(int[] data) {
         //Weet Niet Wat er In staat
     }
 

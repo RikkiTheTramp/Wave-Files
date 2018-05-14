@@ -45,15 +45,15 @@ public class WaveFileReader {
      * Methodes om de aparte chunks te krijgen
      */
     private Chunk getNextChunk() throws IOException {
-        byte[] id = reader.read(4);
-        byte[] size = reader.read(4);
+        int[] id = reader.read(4);
+        int[] size = reader.read(4);
         Chunk chunk = createChunk(id, size);
-        byte[] data = reader.read((int) chunk.getSize());
+        int[] data = reader.read((int) chunk.getSize());
         chunk.extractData(data);
         return chunk;
     }
 
-    private Chunk createChunk(byte[] id, byte[] size) {
+    private Chunk createChunk(int[] id, int[] size) {
         return chunkMaker.get(Arrays.toString(id)).create(id, size);
     }
 }

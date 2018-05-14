@@ -10,7 +10,7 @@ public class FactChunk extends Chunk {
     }
 
     @Override
-    public void extractData(byte[] data) {
+    public void extractData(int[] data) {
         this.numberOfSamplesPerChannel = extractLong(data);
     }
 

@@ -5,7 +5,7 @@ public class RiffChunk extends Chunk{
 
     private String format;
 
-    public RiffChunk(byte[] id, byte[] size, byte[] format){
+    public RiffChunk(int[] id, int[] size, int[] format){
         super(id, size);
         extractData(format);
     }
@@ -19,7 +19,7 @@ public class RiffChunk extends Chunk{
         return ChunkType.RIFF;
     }
 
-    public void extractData(byte[] data) {
+    public void extractData(int[] data) {
         this.format = extractString(data);
     }
 

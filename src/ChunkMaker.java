@@ -4,5 +4,5 @@
 public abstract class ChunkMaker implements Createable {
 
     @Override
-    abstract public Chunk create(byte[] id, byte[] size);
+    abstract public Chunk create(int[] id, int[] size);
 }

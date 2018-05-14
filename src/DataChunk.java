@@ -3,14 +3,14 @@
  */
 public class DataChunk extends Chunk{
 
-    private byte[] samples;
+    private int[] samples;
 
-    public DataChunk(byte[] id, byte[] size){
+    public DataChunk(int[] id, int[] size){
         super(id, size);
     }
 
     @Override
-    public void extractData(byte[] data) {
+    public void extractData(int[] data) {
         samples = data;
     }
 
@@ -24,7 +24,7 @@ public class DataChunk extends Chunk{
         return ChunkType.DATA;
     }
 
-    public byte[] getSamples() {
+    public int[] getSamples() {
         return samples;
     }
 }

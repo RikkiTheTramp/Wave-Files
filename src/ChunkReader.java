@@ -18,9 +18,12 @@ public class ChunkReader{
         return stream.skip(n);
     }
 
-    public byte[] read(int n) throws IOException {
-        byte[] bytes = new byte[n];
-        stream.read(bytes, 0, n);
+    public int[] read(int n) throws IOException {
+        int[] bytes = new int[n];
+        for(int i = 0; i < n; i++){
+            bytes[i] = stream.read();
+        }
+
         return bytes;
     }
 

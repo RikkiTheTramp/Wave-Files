@@ -6,14 +6,14 @@ public abstract class Chunk {
     protected String id;
     protected int size;
 
-    public Chunk(byte[] id, byte[] size){
+    public Chunk(int[] id, int[] size){
         this.id = new String(id, 0, id.length);
         this.size = extractInt(size); // mag naar int geconvert worden want maximale array lengte = max lengte integer
     }
 
-    public abstract void extractData(byte[] data);
+    public abstract void extractData(int[] data);
 
-    protected long extractLong(byte[] bytes, int start, int end){
+    protected long extractLong(int[] bytes, int start, int end){
         long sum = 0 ;
         for (int i = start; i < end; i++){
             sum += bytes[i] * Math.pow(256, i - start);
@@ -21,11 +21,11 @@ public abstract class Chunk {
         return sum;
     }
 
-    protected long extractLong(byte[] bytes){
+    protected long extractLong(int[] bytes){
         return extractLong(bytes, 0, bytes.length);
     }
 
-    protected int extractInt(byte[] bytes, int start, int end) {
+    protected int extractInt(int[] bytes, int start, int end) {
         int sum = 0 ;
         for (int i = start; i < end; i++){
             sum += bytes[i] * Math.pow(256, i - start);
@@ -33,15 +33,15 @@ public abstract class Chunk {
         return sum;
     }
 
-    protected int extractInt(byte[] bytes){
+    protected int extractInt(int[] bytes){
         return extractInt(bytes, 0, bytes.length);
     }
 
-    protected String extractString(byte[] bytes, int start, int end){
+    protected String extractString(int[] bytes, int start, int end){
         return new String(bytes, start, end);
     }
 
-    protected String extractString(byte[] bytes){
+    protected String extractString(int[] bytes){
         return extractString(bytes, 0, bytes.length);
     }
 
