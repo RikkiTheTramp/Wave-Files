@@ -13,7 +13,7 @@ public abstract class Chunk {
 
     public abstract void extractData(int[] data);
 
-    protected long extractLong(int[] bytes, int start, int end){
+    public static long extractLong(int[] bytes, int start, int end){
         long sum = 0 ;
         for (int i = start; i < end; i++){
             sum += bytes[i] * Math.pow(256, i - start);
@@ -21,11 +21,11 @@ public abstract class Chunk {
         return sum;
     }
 
-    protected long extractLong(int[] bytes){
+    public static long extractLong(int[] bytes){
         return extractLong(bytes, 0, bytes.length);
     }
 
-    protected int extractInt(int[] bytes, int start, int end) {
+    public static int extractInt(int[] bytes, int start, int end) {
         int sum = 0 ;
         for (int i = start; i < end; i++){
             sum += bytes[i] * Math.pow(256, i - start);
@@ -33,15 +33,19 @@ public abstract class Chunk {
         return sum;
     }
 
-    protected int extractInt(int[] bytes){
+    public static int extractInt(int[] bytes){
         return extractInt(bytes, 0, bytes.length);
     }
 
-    protected String extractString(int[] bytes, int start, int end){
-        return new String(bytes, start, end);
+    public static String extractString(int[] bytes, int start, int end){
+        String s = "";
+        for(int i = start; i < bytes.length && i < end; i++){
+            s += (char) bytes[i];
+        }
+        return s;
     }
 
-    protected String extractString(int[] bytes){
+    public static String extractString(int[] bytes){
         return extractString(bytes, 0, bytes.length);
     }
 
@@ -57,7 +61,7 @@ public abstract class Chunk {
     public String getId(){
         return id;
     }
-    public long getSize() {
+    public int getSize() {
         return size;
     }
 

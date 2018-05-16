@@ -1,22 +1,33 @@
-import java.io.*;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * Created by RikkiTheTramp on 13/05/18.
  */
-public class Main {
+public class Main extends Application{
 
     public static void main(String[] args) throws IOException {
-        //System.out.println("Geef een wav-file");
-        //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //int[] tst = new int[]{'L', 'I', 'S', 'T'};
+        //System.out.println("L, I, S, T\n" + Arrays.toString(tst));
+        Application.launch();
+    }
 
-        //String fs = br.readLine();
-        //System.out.println(fs);
-        File file = new File("/Users/RikkiTheTramp/Desktop/Click(2).wav");
-        WaveFileReader wfr = new WaveFileReader(file);
-        WaveFile wf = wfr.getWaveFile();
+    public void start(Stage primaryStage) throws IOException {
+        VBox root = new VBox();
 
-        for(Chunk chunk: wf.getChunks()){
-            System.out.println(chunk + "\n");
-        }
+        Scene scene = new Scene(root, 300, 500);
+
+        Controller cont = new Controller(root);
+        cont.initialize();
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Wave File Information");
+        //primaryStage.setResizable(false);
+        primaryStage.show();
+
     }
 }
